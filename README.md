@@ -1,7 +1,7 @@
 # gyft-serve
 Flask frontend for gyft
 
-Website at [https://gyftkgp.herokuapp.com/](https://gyftkgp.herokuapp.com/)
+Website at [https://gyft.metakgp.org/](https://gyft.metakgp.org/)
 
 *gyft* is located at [metakgp/gyft](https://github.com/metakgp/gyft)
 
