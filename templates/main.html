@@ -175,7 +175,7 @@
 			// data.append('password', password)
 			// var url = 'http://localhost:5000/login'
 			// console.log(data, username, security_answer, results[1]) 
-			var url = 'https://gyftkgp.herokuapp.com/login'
+			var url = "{{url_for('user')}}"
 			var request = new XMLHttpRequest()
 			request.open("POST", url , true)
 
@@ -190,7 +190,7 @@
 			    	alert("Possibly some error occured. \nIs your password/secret answer correct? Try again!")
 			    	
 			    	// window.open("http://localhost:5000/", "_self");
-			    	window.open("https://gyftkgp.herokuapp.com", "_self");
+			    	window.open("{{url_for('homepage')}}", "_self");
 			    }
 			    else {
 			    	// console.log(this.responseText);
@@ -217,7 +217,7 @@
 			// data.append('password', password)
 			// console.log(data);
 			// var url = 'http://localhost:5000/getques'
-			var url = 'https://gyftkgp.herokuapp.com/getques'
+			var url = "{{url_for('getques')}}"
 			var request = new XMLHttpRequest()
 			request.open("POST", url , true)
 			request.onload = function () {

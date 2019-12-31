@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup as bs
 import re
 import json
 import os
+import traceback
 
 import datetime
 import sys
@@ -157,6 +158,17 @@ def user():
         rows = rows_head.findAll('tr')
         times = []
 
+        # Delete the rows that doesn't have tableheader, basically without a weekday
+        del_rows = []
+        for i in range(1, len(rows)):
+            HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
+            # print(HeaderRows)
+            if len(HeaderRows) is 0:
+                del_rows.append(i)
+
+        for index_del in sorted(del_rows, reverse=True):
+            del rows[index_del]
+
         for a in rows[0].findAll('td'):
             if ('AM' in a.text or 'PM' in a.text):
                 times.append(a.text)
@@ -290,6 +302,7 @@ def user():
         return str([cal.to_ical().decode('utf-8')])
     except Exception as e:
         del session_dict[token]
+        traceback.print_exc()
         print ("Error", e)
         return ("error occured")
 #     # return str(top_N_sim_users(users_id['Kumar Srinivas'][0], 5))
@@ -297,6 +310,7 @@ def user():
 @app.route('/getques', methods=['GET', 'POST'])
 def getques():
     try:
+        print(f"getting question for {request.form['user_id']}")
         s = requests.Session()
         r = s.get(ERP_HOMEPAGE_URL)
         soup = bs(r.text, 'html.parser')
