@@ -12,6 +12,6 @@ This would download your `timetable.ics` file, import to Google Calendar by foll
 
 ![placeholder](out.gif)
 
-Development & Deployment
+## Development & Deployment
 
 The `master` branch is auto deployed on Heroku.
