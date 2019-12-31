@@ -84,6 +84,7 @@ def homepage():
 
 @app.route('/login', methods=['POST'])
 def user():
+    global session_dict
     try:
         user_id = request.form['user_id']
         token = request.form['sessionToken']
@@ -309,6 +310,7 @@ def user():
 
 @app.route('/getques', methods=['GET', 'POST'])
 def getques():
+    global session_dict
     try:
         print(f"getting question for {request.form['user_id']}")
         s = requests.Session()
