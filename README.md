@@ -1,4 +1,5 @@
 # gyft-serve
+
 Flask frontend for gyft
 
 Website at [https://gyft.metakgp.org/](https://gyft.metakgp.org/)
@@ -10,3 +11,7 @@ This would download your `timetable.ics` file, import to Google Calendar by foll
 ## Demo
 
 ![placeholder](out.gif)
+
+Development & Deployment
+
+The `master` branch is auto deployed on Heroku.
