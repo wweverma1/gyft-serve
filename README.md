@@ -14,4 +14,7 @@ This would download your `timetable.ics` file, import to Google Calendar by foll
 
 ## Development & Deployment
 
-The `master` branch is auto deployed on Heroku.
+This repository just serves as a frontend for [original Gyft](https://github.com/metakgp/gyft/) and is mostly maintained alongside updates to the original repository.
+
+
+NOTE: **The `master` branch is auto deployed on Heroku**.
