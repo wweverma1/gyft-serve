@@ -183,11 +183,16 @@
 			request.onload = function () {
 		    // do something to response
 
-			    if (!(request.readyState == XMLHttpRequest.DONE && request.status == 200) || this.responseText == "error occured") {
+			    if (!(request.readyState == XMLHttpRequest.DONE && request.status == 200) || (this.responseText == "error occured" || this.responseText == "wrong credentials") {
 			    	console.log("error");
 			    	// console.log(this.responseText);
 			    	console.log(request.readyState, request.status);
-			    	alert("Possibly some error occured. \nIs your password/secret answer correct? Try again!")
+					if (this.responseText == "error occured") {
+			    		alert("Possibly some error occured. \nIs your password/secret answer correct? Try again!");
+					}
+					else if (this.responseText == "wrong credentials") {
+			    		alert("The entered credentials are wrong. Try again!");
+					}
 			    	
 			    	// window.open("http://localhost:5000/", "_self");
 			    	window.open("{{url_for('homepage')}}", "_self");

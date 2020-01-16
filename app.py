@@ -109,9 +109,12 @@ def user():
             print("Error for LOGIN URL")
             print("Retrying.")
 
-        
-        ssoToken = re.search(r'\?ssoToken=(.+)$',
-                         r.history[1].headers['Location']).group(1)
+        try:
+            ssoToken = re.search(r'\?ssoToken=(.+)$',
+                             r.history[1].headers['Location']).group(1)
+        except IndexError:
+            traceback.print_exc()
+            return "wrong credentials"
 
         ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 
