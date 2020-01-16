@@ -14,6 +14,10 @@ This would download your `timetable.ics` file, import to Google Calendar by foll
 
 ## Development & Deployment
 
+### What To Do Every Sem?
+
+We need to updates dates.py every semester.
+
 This repository just serves as a frontend for [original Gyft](https://github.com/metakgp/gyft/) and is mostly maintained alongside updates to the original repository.
 
 
