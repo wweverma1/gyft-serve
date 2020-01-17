@@ -183,7 +183,7 @@
 			request.onload = function () {
 		    // do something to response
 
-			    if (!(request.readyState == XMLHttpRequest.DONE && request.status == 200) || (this.responseText == "error occured" || this.responseText == "wrong credentials") {
+			    if (!(request.readyState == XMLHttpRequest.DONE && request.status == 200) || (this.responseText == "error occured" || this.responseText == "wrong credentials")) {
 			    	console.log("error");
 			    	// console.log(this.responseText);
 			    	console.log(request.readyState, request.status);
