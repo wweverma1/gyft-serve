@@ -32,7 +32,7 @@
   <div id="overlay" style="display:none;"></div>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -46,10 +46,10 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
   </div>
-  
+
 
 	<div class="limiter">
 		<div class="container-login100">
@@ -65,7 +65,7 @@
 
 					<div class="wrap-input100" id="divshown">
 						<input class="input100" type="text" name="loginusername" placeholder="ERP Roll Number">
-						
+
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -76,16 +76,16 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" onclick="getSecurityQues()">
 						Get Security Question
-						</button>						
+						</button>
 					</div>
 
 					<br/><br/>
 					<div class="wrap-input100" id="divwrite">
-						
+
 					</div>
 					<div class="wrap-input100" id="divshown">
 						<input class="input100" type="password" name="securityanswer" placeholder="Security Question's Answer">
-						
+
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -95,7 +95,7 @@
 					<div class="wrap-input100" id="divshown">
 
 						<input class="input100" type="password" name="loginpassword" placeholder="ERP Password">
-						
+
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -105,9 +105,14 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" onclick="login();">
 						Download ICS
-						</button>						
+						</button>
 					</div>
-					
+
+					<!-- after timetable download -->
+					<div class="container-login100-form-btn">
+						<a class="login100-form-btn" type="submit" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" target="_blank">add to calendar</a>
+					</div>
+
 					<div class="text-center p-t-136">
 						<a style="cursor: pointer;" class="txt2" target="_blank" href="https://metakgp.github.io/">
 							Maintained by MetaKGP with <span style="font-size:150%;color:red;">♥</span>
@@ -174,7 +179,7 @@
 			data.append('sessionToken', results[1])
 			// data.append('password', password)
 			// var url = 'http://localhost:5000/login'
-			// console.log(data, username, security_answer, results[1]) 
+			// console.log(data, username, security_answer, results[1])
 			var url = "{{url_for('user')}}"
 			var request = new XMLHttpRequest()
 			request.open("POST", url , true)
@@ -193,7 +198,7 @@
 					else if (this.responseText == "wrong credentials") {
 			    		alert("The entered credentials are wrong. Try again!");
 					}
-			    	
+
 			    	// window.open("http://localhost:5000/", "_self");
 			    	window.open("{{url_for('homepage')}}", "_self");
 			    }
@@ -227,7 +232,7 @@
 			request.open("POST", url , true)
 			request.onload = function () {
 
-    
+
     // console.log (this.responseText);
     		// do something to response
 		    if (this.responseText == "error occured"){
