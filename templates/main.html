@@ -110,7 +110,7 @@
 
 					<!-- after timetable download -->
 					<div class="container-login100-form-btn">
-						<a class="login100-form-btn" type="submit" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" target="_blank">add to calendar</a>
+						<a id="add-to-calendar" class="login100-form-btn" type="submit" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" target="_blank" disabled>add to Google calendar</a>
 					</div>
 
 					<div class="text-center p-t-136">
@@ -164,6 +164,12 @@
 	  document.body.removeChild(element);
 	}
 	var temp = "";
+
+	// function for enabling link to google calendar
+
+	function enableButton(){
+		$('#add-to-calendar').removeAttr('disabled')
+	}
 		var login = function() {
 			$('#loading').show();
 			// console.log("call ho raha ")
@@ -207,6 +213,8 @@
 			    	t = eval(this.responseText)
 			    	temp = t[0];
 			   		download("Timetable.ics", t[0]);
+
+						enableButton();
 			    }
 				$('#loading').hide();
 			};
