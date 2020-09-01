@@ -220,7 +220,7 @@ iframe {
 
 .wrap-info {
   width: 960px;
-  background-color: #e3e3e3;
+  background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
 
@@ -235,15 +235,7 @@ iframe {
 }
 
 .wrap-info:hover{
-  background-color: #fff;
-}
-
-.wrap-info:active{
-  background-color: #fff;
-}
-
-.learn-more-btn:hover {
-  background-color: #fff;
+  background-color: #e3e3e3;
 }
 
 .learn-more-btn{
@@ -252,12 +244,23 @@ iframe {
   border: none;
   text-align: left;
   outline: none;
+  font-size: 20px;
+}
+
+.learn-more-btn::after {
+  content: "\25BC";
+  float: right;
+}
+
+.active::after {
+  content: "\25B4"
 }
 
 .learn-more-content{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  padding: 0;
 }
 
 
