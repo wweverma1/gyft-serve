@@ -103,6 +103,9 @@
 						</span>
 					</div>
 					<div class="container-login100-form-btn">
+						<p id="instructions-timetable" style="color:red;">
+							Download timetable from erp
+						</p>
 						<button class="login100-form-btn" type="submit" onclick="login();">
 						Download ICS
 						</button>
@@ -110,6 +113,9 @@
 
 					<!-- after timetable download -->
 					<div class="container-login100-form-btn">
+						<p id="instructions-next-step">
+							Add timetable to your google calendar
+						</p>
 						<a id="add-to-calendar" class="login100-form-btn" type="submit" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" target="_blank" disabled>add to Google calendar</a>
 					</div>
 
@@ -180,10 +186,12 @@
 	}
 	var temp = "";
 
-	// function for enabling link to google calendar
+	// function for enabling link to google calendar and colouring of instructions
 
 	function enableButton(){
-		$('#add-to-calendar').removeAttr('disabled')
+		$('#add-to-calendar').removeAttr('disabled');
+		$('#instructions-timetable').removeAttr('style');
+		$('#instructions-next-step').css('color', 'red');
 	}
 		var login = function() {
 			$('#loading').show();
