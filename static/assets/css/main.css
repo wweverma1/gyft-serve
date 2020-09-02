@@ -194,29 +194,10 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
+  position: relative;
 }
 /*//////////////////////////////////////////////////////////////////
 [ more info ]*/
-
-.container-info {
-  width: 100%;
-  min-height: 5vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #9952C5, #4357CF);
-  background: -o-linear-gradient(-135deg, #9952C5, #4357CF);
-  background: -moz-linear-gradient(-135deg, #9952C5, #4357CF);
-  background: linear-gradient(-135deg, #9952C5, #4357CF);
-}
 
 .wrap-info {
   width: 960px;
@@ -232,6 +213,8 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 10px 10px 10px;
+  position: relative;
+  margin-top: 2em;
 }
 
 .wrap-info:hover{
@@ -244,7 +227,6 @@ iframe {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 20px;
 }
 
 .learn-more-btn::after {
