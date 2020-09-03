@@ -235,7 +235,7 @@ iframe {
 }
 
 .active::after {
-  content: "\25B4"
+  content: "\25B4";
 }
 
 .learn-more-content{

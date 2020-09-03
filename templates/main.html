@@ -116,7 +116,7 @@
 						<p id="instructions-next-step">
 							Add timetable to your google calendar
 						</p>
-						<a id="add-to-calendar" class="login100-form-btn" type="submit" target="_blank" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" disabled>add to Google calendar</a>
+						<a id="add-to-calendar" class="login100-form-btn" type="submit" target="_blank" style="opacity: 0.4; cursor: default !important; pointer-events: none; color: white;">add to Google calendar</a>
 					</div>
 
 					<div class="text-center p-t-136">
@@ -127,7 +127,7 @@
 					</form>
 
 			</div>
-			
+
 			<div class="wrap-info">
 				<button type="button" class="learn-more-btn">How to use downloaded ICS file?</button>
 				<div class="learn-more-content">
@@ -201,9 +201,10 @@
 	// function for enabling link to google calendar and colouring of instructions
 
 	function enableButton(){
-		$('#add-to-calendar').removeAttr('disabled');
-		$('#instructions-timetable').removeAttr('style');
-		$('#instructions-next-step').css('color', 'red');
+		$("#add-to-calendar").attr("href", "https://calendar.google.com/calendar/r/settings/export?tab=wc");
+		$("#add-to-calendar").removeAttr("style");
+		$("#instructions-timetable").removeAttr("style");
+		$("#instructions-next-step").css("color", "red");
 	}
 		var login = function() {
 			$('#loading').show();
