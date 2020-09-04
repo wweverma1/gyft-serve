@@ -198,7 +198,7 @@
 	// function for enabling link to google calendar and colouring of instructions
 
 	function enableButton(){
-		$("#add-to-calendar").attr("href", "https://calendar.google.com/calendar/r/settings/export?tab=wc");
+		$("#add-to-calendar").attr("onclick", "window.open('https://calendar.google.com/calendar/r/settings/export?tab=wc', '_blank')");
 		$("#add-to-calendar").removeAttr("style");
 		$("#instructions-timetable").removeAttr("style");
 		$("#instructions-next-step").css("color", "red");
