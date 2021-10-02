@@ -54,10 +54,10 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="/static/assets/images/img-01.png" alt="IMG">
+				<div class="login100-pic js-tilt" style="position: relative;" data-tilt>
+					<img style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;" src="/static/assets/images/img-01.png" alt="IMG">
 				</div>
-<form id="loginform" class="login100-form validate-form" onkeypress="return event.keyCode != 13;" onsubmit="event.preventDefault(); ">
+				<form id="loginform" class="login100-form validate-form" onkeypress="return event.keyCode != 13;" onsubmit="event.preventDefault(); ">
 
 					<span class="login100-form-title">
 						Get your freaking timetable
@@ -69,7 +69,7 @@
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-id-badge" aria-hidden="true"></i>
 						</span>
 					</div>
 
@@ -80,51 +80,59 @@
 					</div>
 
 					<br/><br/>
-					<div class="wrap-input100" id="divwrite">
-
-					</div>
-					<div class="wrap-input100" id="divshown">
-						<input class="input100" type="password" name="securityanswer" placeholder="Security Question's Answer">
-
-
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-					<div class="wrap-input100" id="divshown">
-
-						<input class="input100" type="password" name="loginpassword" placeholder="ERP Password">
-
-
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-					<div class="container-login100-form-btn">
-						<button title="download timetable in ICS format from erp" class="login100-form-btn" type="submit" onclick="login();">
-						Download ICS
-						</button>
+					<div id="second-step" style="display: none;">
+						<div class="wrap-input100">
+							<input class="input100" type="text" name="securityquestion" id="security-question" readonly="readonly">
+	
+	
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-question-circle-o" aria-hidden="true"></i>
+							</span>
+						</div>
+						<div class="wrap-input100" id="divshown">
+							<input class="input100" type="password" name="securityanswer" placeholder="Security Question's Answer">
+	
+	
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</span>
+						</div>
+						<div class="wrap-input100" id="divshown">
+	
+							<input class="input100" type="password" name="loginpassword" placeholder="ERP Password">
+	
+	
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-key" aria-hidden="true"></i>
+							</span>
+						</div>
+						<div class="container-login100-form-btn">
+							<button title="download timetable in ICS format from erp" class="login100-form-btn" type="submit" onclick="login();">
+							Download ICS
+							</button>
+						</div>
 					</div>
 
 					<!-- after timetable download -->
-					<div class="container-login100-form-btn">
-						<button title="import ICS file to your google calendar" id="add-to-calendar" class="login100-form-btn" type="submit" target="_blank" style="opacity: 0.4; cursor: default !important; pointer-events: none; color: white;">add to Google calendar</button>
+					<div id="third-step" style="display: none;">
+						<div class="container-login100-form-btn">
+							<button title="import ICS file to your google calendar" id="add-to-calendar" class="login100-form-btn" type="submit" target="_blank" style="opacity: 0.4; cursor: default !important; pointer-events: none; color: white;">add to Google calendar</button>
+						</div>
 					</div>
-
-					<div class="text-center p-t-136">
-						Maintained by 
-						<a style="cursor: pointer;" class="txt2" target="_blank" href="https://metakgp.github.io/">
-							MetaKGP
-						</a>
-						with <span style="font-size:150%;color:red;">♥</span> at 
-						<a style="cursor: pointer;" target="_blank" href="https://github.com/metakgp/gyft-serve">
-							GitHub <img src="/static/assets/images/icons/github.png"/>
-						</a>
-					</div>
-					</form>
-
+				</form>
+				<div class="footer p-t-136" style="text-align: center; width: 100%;">
+					Maintained by 
+					<a style="cursor: pointer;" class="txt2" target="_blank" href="https://metakgp.github.io/">
+						MetaKGP
+					</a>
+					with <span style="font-size:150%;color:red;">❤️</span> at 
+					<a style="cursor: pointer;" target="_blank" href="https://github.com/metakgp/gyft-serve">
+						GitHub <img src="/static/assets/images/icons/github.png"/>
+					</a>
+				</div>
 			</div>
 
 			<div class="wrap-info">
@@ -245,8 +253,8 @@
 			    	t = eval(this.responseText)
 			    	temp = t[0];
 			   		download("Timetable.ics", t[0]);
-
-						enableButton();
+					enableButton();
+					document.getElementById('third-step').style.display = "block";
 			    }
 				$('#loading').hide();
 			};
@@ -281,8 +289,9 @@
 			}
 		    else
 		    	{
+					document.getElementById('second-step').style.display = "block";
 		    		results = eval(this.responseText);
-    				$('#divwrite').html(results[0]);
+					document.getElementById('security-question').value = results[0];
     			}
 			$('#loading').hide();
 };
